@@ -41,11 +41,11 @@ trainer = Trainer(
 trainer.train()
 
 def generate_question(context):
-    input_text = f"Generate Question: {context}"
-    input_ids = tokenizer.encode(input_text, return_tensors="pt")
-    outputs = model.generate(input_ids)
+    input = f"Generate Question: {context}"
+    input_tokenized = tokenizer.encode(input_text, return_tensors="pt")
+    output = model.generate(input_ids)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 context = str(input("Enter Text: "))
-generated_question = generate_question(context)
+question = generate_question(context)
 print(f"Generated Question: {generated_question}")
