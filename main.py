@@ -46,6 +46,6 @@ def generate_question(context):
     output = model.generate(input_ids)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-context = str(input("Enter Text: "))
+context = input("Enter Text: ")
 question = generate_question(context)
 print(f"Generated Question: {generated_question}")
